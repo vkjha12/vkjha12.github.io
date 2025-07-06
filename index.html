@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Vaibhav Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Welcome to Vaibhav Portal</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Enter Username" required>
+      <input type="password" id="password" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+      <p class="signup-link">Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+    </form>
+
+    <form id="signupForm" style="display: none;">
+      <input type="text" id="newUsername" placeholder="Create Username" required>
+      <input type="password" id="newPassword" placeholder="Create Password" required>
+      <button type="submit">Sign Up</button>
+      <p class="signup-link">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

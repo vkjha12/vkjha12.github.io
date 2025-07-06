@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #00ffd5;
+      text-shadow: 0 0 10px #00ffd5;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00ffd5;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffd5, 0 0 30px #00ffd5;
+      }
+    }
+
+    .payment-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #00ffe7;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 15px #00ffe7;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .qr {
+      width: 220px;
+      height: 220px;
+      margin-bottom: 20px;
+      border: 4px solid #00ffe7;
+      border-radius: 10px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 10px #00ffe7; }
+      50% { transform: scale(1.05); box-shadow: 0 0 25px #00ffe7; }
+      100% { transform: scale(1); box-shadow: 0 0 10px #00ffe7; }
+    }
+
+    .details {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #ffeb3b;
+    }
+
+    .utr-section {
+      margin-top: 30px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      width: 80%;
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 12px 25px;
+      background: #00ffc8;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00c2ff;
+      box-shadow: 0 0 15px #00c2ff;
+    }
+
+    .success {
+      margin-top: 15px;
+      color: #4caf50;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pay to Enroll in Course</h1>
+
+  <div class="payment-box">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=101singhparteek@okicici&pn=VaibhavCourses&am=499&cu=INR" class="qr" alt="Scan QR" />
+
+    <div class="details">
+      <p>📱 UPI: <strong>101singhparteek@okicici</strong></p>
+      <p>📞 Phone: <strong>8987080746</strong></p>
+    </div>
+
+    <div class="utr-section">
+      <p>Enter UTR/Txn ID after payment:</p>
+      <input type="text" id="utrInput" placeholder="Enter UTR number" />
+      <br />
+      <button onclick="confirmPayment()">Submit</button>
+      <div id="successMsg" class="success">✅ Payment Confirmed! You'll get access soon.</div>
+    </div>
+  </div>
+
+  <script>
+    function confirmPayment() {
+      const utr = document.getElementById("utrInput").value;
+      const successMsg = document.getElementById("successMsg");
+
+      if (utr.trim().length > 5) {
+        successMsg.style.display = "block";
+      } else {
+        alert("Please enter a valid UTR number.");
+      }
+    }
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Confirmation</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .confirmation-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #00ffe1;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px #00ffe1;
+      max-width: 500px;
+    }
+
+    .confirmation-box h1 {
+      color: #00ff99;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff99;
+    }
+
+    .confirmation-box p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .contact-box {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #00ffe144;
+      border: 1px solid #00ffe1;
+      border-radius: 10px;
+      font-size: 1em;
+    }
+
+    .warning {
+      margin-top: 20px;
+      color: #ff4d4d;
+      font-weight: bold;
+      text-shadow: 0 0 5px red;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background: #00ffc3;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00b7ff;
+      box-shadow: 0 0 10px #00b7ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="confirmation-box">
+    <h1>✅ Payment Successful!</h1>
+    <p>Thank you for your payment. <br>To access your purchased course(s), please contact the owner immediately.</p>
+    
+    <div class="contact-box">
+      📞 <strong>Vaibhav Jha</strong> <br>
+      ☎️ <strong>+91 8987080746</strong>
+    </div>
+
+    <div class="warning">
+      ⚠️ Fake UPI or payment proof will be auto detected & banned.
+    </div>
+
+    <button class="btn" onclick="location.href='courses.html'">🔙 Go to Courses</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vaibhav Courses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .typing {
+      font-size: 2.5em;
+      font-weight: 700;
+      border-right: 4px solid rgba(255,255,255,0.75);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: white; }
+    }
+
+    .courses {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .course-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #ff004f;
+      border-radius: 15px;
+      padding: 25px;
+      width: 300px;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #ff004f;
+    }
+
+    .course-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff004f;
+    }
+
+    .course-card h3 {
+      font-size: 1.5em;
+      color: #00ffe7;
+    }
+
+    .course-card p {
+      font-size: 1em;
+      line-height: 1.4em;
+    }
+
+    .pay-button {
+      display: block;
+      margin: 40px auto;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #00c9ff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00c9ff;
+    }
+
+    .pay-button:hover {
+      background: #00ffe7;
+      box-shadow: 0 0 20px #00ffe7;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="typing">Welcome to Vaibhav's Course Portal</div>
+  </header>
+
+  <div class="courses">
+    <div class="course-card">
+      <h3>📈 Grow Channel Views Like a Pro</h3>
+      <p>Learn techniques to increase your YouTube views rapidly and sustainably using proven strategies.</p>
+    </div>
+
+    <div class="course-card">
+      <h3>🏆 Get Silver Play Button in 1 Month</h3>
+      <p>Step-by-step guide to reach 100K subscribers and unlock your first YouTube play button.</p>
+    </div>
+
+    <div class="course-card">
+      <h3>💰 Monetize in 7 Days</h3>
+      <p>Full course on how to reach YouTube monetization requirements and start earning quickly.</p>
+    </div>
+  </div>
+
+  <a href="payment.html"><button class="pay-button">Proceed to UPI Payment</button></a>
+
+</body>
+</html>
